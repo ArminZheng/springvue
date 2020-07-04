@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <child count=0></child>
+    <child count=0></child>
+    <child count=40></child>
+    <child :count="count"></child>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            count: 40
+        },
+        components: {
+            'child': {
+                template: '<p v-on:click="count++">你点击了我{{count}}次</p>',
+                props: ['count']
+            }
+        },
+        methods: {
+            change() {
+                if (this.count == 45) {
+                    this.count = 40
+                }
+                console.log(this.count)
+            }
+        }
+    })
+</script>
+</body>
+</html>

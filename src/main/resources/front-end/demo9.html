@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot</title>
+</head>
+<body>
+<!--view层 模板-->
+<div id="app">
+    <p>书籍列表</p>
+    <ul>
+        <li>JAVA</li>
+        <li>Linux</li>
+        <li>Python</li>
+    </ul>
+</div>
+
+<!--导入Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        //Model : 数据
+        data:{
+            message: "hello vue!"
+
+        }
+    });
+</script>
+</body>
+
+<!--ViewModel层 : F12中可以使用vm.message改变数据-->
+</html>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--view层 模板-->
+<div id="app">
+
+    <!-- 组件传递给组件中的值: props -->
+    <Armin v-for="item in items" v-bind:itemm="item"></Armin>
+    <armin></armin>
+</div>
+
+<!--导入Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+
+    //定义一个Vue组件compent
+    Vue.component("Armin",{
+        props: ["itemm"],
+        template: "<span>I'm {{itemm}} god </span><br>"
+    });
+
+    var vm = new Vue({
+        el: "#app",
+        //Model : 数据
+        data:{
+            message: "hello vue!",
+            items: ["java","spring","vue"]
+        }
+    });
+</script>
+</body>
+</html>

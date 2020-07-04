@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--view层 模板-->
+<div id="app">
+    <button v-on:click="sayHi()">click me</button>
+
+    <input type="text" v-model="msg"> {{msg}}
+
+    <input type="radio" name="sex" v-model:>
+
+</div>
+
+<!--导入Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "",
+            message: "阿郑你可长点心吧"
+        },
+        methods: {//方法必须定义在Vue的method对象中, 7大
+            sayHi: function (event) {
+                alert(this.message);
+            }
+        }
+    });
+</script>
+</body>
+</html>

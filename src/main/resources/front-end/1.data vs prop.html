@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <child></child>
+    <child></child>
+    <child></child>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        components: {
+            'child': {
+                template: '<p v-on:click="count++">你点击了我{{count}}次</p>',
+                data: function() {
+                    return {
+                        count: 40
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

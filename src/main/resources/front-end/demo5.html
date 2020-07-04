@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--view层 模板-->
+<div id="app">
+
+    <input type="text" v-model="msg"> {{msg}}<br>
+    <textarea v-model="msg"></textarea> {{msg}}<br><br><br><br>
+
+    <input type="radio" name="sex" value="male" v-model="msg" checked>male
+    <input type="radio" name="sex" v-model="msg" value="female">female
+    
+    <br>
+
+    <select v-model="ckk">
+        <option selected>A</option>
+        <option selected>B</option>
+        <option value="" disabled>--please option--</option>
+        <option selected>C</option>
+    </select>{{ckk}}
+    <!-- v-model会忽略所有表单元素的value checked selected特性的初始值, 并且改为为Vue实例的数据-->
+</div>
+
+<!--导入Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "hhhh",
+            message: "阿郑你可长点心吧",
+            ckk: ""
+        },
+    });
+</script>
+</body>
+</html>
