@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    <button @click="clickthis">click me</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        //Model : 数据
+        // data: {
+        //     message: "hello vue!"
+        // },
+        data(){
+            return {
+                message: "hello vue"
+            }
+        },
+        methods: {
+            clickthis: function () {
+                // this.message = "wdnmd";
+                this.$data.message = "wcnmd";
+                alert("1"+this.$options.data().message);
+                alert("2"+this.$data.message);
+                alert("3 important："+this.message);
+            }
+        }
+    });
+</script>
+</body>
+</html>

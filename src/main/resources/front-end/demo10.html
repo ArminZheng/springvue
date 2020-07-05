@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>slot</title>
 </head>
 <body>
+<div id="app">
+        <vue v-slot:header>
+            <h1>Here might be a page title</h1>
+        </vue>
 
+        <p>A paragraph for the main content.</p>
+        <p>And another one.</p>
+
+        <vue v-slot:footer>
+            <h1>Here's some contact info</h1>
+        </vue>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+<script>
+
+    Vue.component('hello',{
+        template: '#hello'
+    });
+
+    Vue.component('vue',{
+        template: "<div class=\"container\">\
+                    <header>\
+                        <!-- 我们希望把页头放这里 -->\
+                        <slot name='header'></slot>\
+                    </header>\
+                    <main>\
+                        <!-- 我们希望把主要内容放这里 -->\
+                    </main>\
+                    <footer>\
+                        <!-- 我们希望把页脚放这里 -->\
+                        <slot name='footer'></slot>\
+                    </footer>\
+                </div>"
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '<h3> hello 1903</h3>'
+        }
+    })
+</script>
 </body>
 </html>

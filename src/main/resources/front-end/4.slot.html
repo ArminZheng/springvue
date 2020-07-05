@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot</title>
+    <style>
+        #app{
+            text-align: center; /*让div内部文字居中*/
+            background-color: #fff;
+            border-radius: 20px;
+            width: 300px;
+            height: 350px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<!--view层 模板-->
+<div id="app">
+
+    <todo #woaini :title="title">
+        <p style="color: orangered">我是父组件插槽内容</p>
+        <hr>
+        <p style="color: orangered">我也是替换插槽内容</p>
+    </todo>
+
+    <div>
+        <todo v-slot:right="data1">
+            <ul>
+                <li v-for="(item,key,index) in data1" :key="key" :index="index">{{item}}</li>
+            </ul>
+        </todo>
+    </div>
+    <div>
+        <todo #left="data2">
+            <ul>
+                <li v-for="item in data2">{{item}}</li>
+            </ul>
+        </todo>
+    </div>
+</div>
+
+<!--导入Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+<script>
+    Vue.component("todo", {
+        props: ['title','key','index'],
+        template:
+            '<div>\
+                <div>我是todo1组件</div>\
+                <slot name="woaini">hah</slot>\
+                <slot name="right" :data="pLanguage">hah</slot>\
+                <slot name="left" :data="stringssss">hah</slot>\
+                <div>{{title}}</div>\
+            </div>',
+        data(){
+            return{
+                pLanguage: ['java','python','spring','scala'],
+                stringssss: "pLanguage"
+            }
+        }
+    });
+
+    Vue.component("todo2", {
+        props: ["title"],
+        template: '<div>{{title}}</div>',
+    });
+
+    var vm = new Vue({
+        el: "#app",
+        //Model : 数据
+        data: {
+            title: "书籍列表",
+        },
+    });
+</script>
+</body>
+</html>
+</html>

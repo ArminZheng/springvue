@@ -46,7 +46,11 @@ v-bind:定义的接收参数="v-for遍历的参数"                v-bind:形参
     created 数据 一些异步请求的调用 ，loading……事件结束等
     mounted 获取Dom节点操作DOM ，在这个钩子函数里面我们可以使用一些第三方的插件实例写在这个函数内
     updated 做一些数据统一更新处理的相应函数
-data(){return: .. }返回一份数据的副本，没有直接操作源数据( data: funtion(){}  )
+
+> *important:  data(){return: .. }返回一份数据的副本，没有直接操作源数据( data: funtion(){}  )*
+            *this._options.data().message 是私有属性，不能访问*
+            *this.$options.data().message 只能展示初始化时的数据*
+            *this.$data.message === this.message 都能传值取值*
 
 el是Vue实例的挂载目标。在实例挂载之后，元素可以用 vm.$el 访问。
 > el是目标, 后面的操作用$el替代
@@ -56,17 +60,17 @@ el是Vue实例的挂载目标。在实例挂载之后，元素可以用 vm.$el �
 ```javascript
 computed: {
     属性名: function(){
-
-            }, ....
+                //最好别和函数重名，重名了只调用函数，用不了计算属性
+                //Vue的特色，相当于缓存，里面东西不变，只计算一次，一开始就计算
+            }, ...
     }
-最好别和函数重名，重名了只调用函数，用不了计算属性
-Vue的特色，相当于缓存，里面东西不变，只计算一次
 ```
 9.插槽 slot
         相当于开了个口子，2个插槽开2个口子，可以在View层去写口子做什么
 <slot name="name"></> ===占位符
         事件分发：使用自定义事件   this.$emit('自定义事件名', 参数)       //emit 发射 v.
 
+$emit("kebab-case", 参数);    只能全小写中间用-隔开
 
 
 

@@ -14,16 +14,20 @@
     <!--        <li>Python</li>-->
     <!--    </ul>-->
 
-    <todo>
-        <todo-title slot="todo-title" :title="title"></todo-title>
-        <todo-items slot="todo-items" v-for="(item,index) in items"
-                    :item="item" :index="index" @removeI="removeItems(index)"></todo-items>
+        <a href="baidu.com">baidu</a>
+    <todo #todo-title>
+        <todo-title :title="title"></todo-title>
+    </todo>
+
+    <todo #todo-items>
+        <todo-items v-for="(item,index) in items"
+                    :item="item" :index="index" @remove-emit="removeItems(index)"></todo-items>
     </todo>
     <hr>
 </div>
 
 <!--导入Vue.js-->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
 <script>
 
     Vue.component("todo", {
@@ -46,10 +50,10 @@
     });
     Vue.component("todo-items", {
         props: ["item",'index'],
-        template: '<li>{{index}}---->{{item}} <button @click="remove()">delete</button></li>',
+        template: '<li>{{index}}---->{{item}} <button @click="removeComponent()">delete</button></li>',
         methods: {
-            removeI: function () {
-                alert("111");
+            removeComponent: function (index) {
+                this.$emit('remove-emit',index);
             }
         }
     });
