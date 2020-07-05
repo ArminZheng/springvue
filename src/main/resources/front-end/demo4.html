@@ -10,9 +10,10 @@
     <button v-on:click="sayHi()">click me</button>
 
     <input type="text" v-model="msg"> {{msg}}
-
-    <input type="radio" name="sex" v-model:>
-
+    <hr>
+    <input type="radio" name="sex" v-model="sex" value="male">男
+    <input type="radio" name="sex" v-model="sex" value="female">女
+    {{sex}}
 </div>
 
 <!--导入Vue.js-->
@@ -21,7 +22,8 @@
     var vm = new Vue({
         el: "#app",
         data: {
-            msg: "",
+            msg: "111",
+            sex: "female",
             message: "阿郑你可长点心吧"
         },
         methods: {//方法必须定义在Vue的method对象中, 7大

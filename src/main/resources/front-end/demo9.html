@@ -7,23 +7,65 @@
 <body>
 <!--view层 模板-->
 <div id="app">
-    <p>书籍列表</p>
-    <ul>
-        <li>JAVA</li>
-        <li>Linux</li>
-        <li>Python</li>
-    </ul>
+    <!--    <p>书籍列表</p>-->
+    <!--    <ul>-->
+    <!--        <li>JAVA</li>-->
+    <!--        <li>Linux</li>-->
+    <!--        <li>Python</li>-->
+    <!--    </ul>-->
+
+    <todo>
+        <todo-title slot="todo-title" :title="title"></todo-title>
+        <todo-items slot="todo-items" v-for="(item,index) in items"
+                    :item="item" :index="index" @removeI="removeItems(index)"></todo-items>
+    </todo>
+    <hr>
 </div>
 
 <!--导入Vue.js-->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
+
+    Vue.component("todo", {
+        template: /*"<div>" +
+                "<slot></slot>" +
+                "<ul>" +
+                "</ul>" +
+            "</div>"*/
+            '<div>\
+                <slot name="todo-title">hehe</slot>\
+                <ul>\
+                    <slot name="todo-items">haha</slot>\
+                </ul>\
+            </div>'
+    });
+
+    Vue.component("todo-title", {
+        props: ["title"],
+        template: '<div>{{title}}</div>'
+    });
+    Vue.component("todo-items", {
+        props: ["item",'index'],
+        template: '<li>{{index}}---->{{item}} <button @click="remove()">delete</button></li>',
+        methods: {
+            removeI: function () {
+                alert("111");
+            }
+        }
+    });
+
     var vm = new Vue({
         el: "#app",
         //Model : 数据
-        data:{
-            message: "hello vue!"
-
+        data: {
+            title: "书籍列表",
+            items: ['java', 'linux', 'python']
+        },
+        methods: {
+            removeItems: function (index) {
+                console.log(this.items[index]+" is delete successful!")
+                this.items.splice(index,1) //数组下标从0开始；splice万金油方法splice(index,number,"new1","new2",...);
+            }
         }
     });
 </script>
