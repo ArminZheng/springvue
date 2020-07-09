@@ -1,0 +1,16 @@
+person:
+  lastName: zoe
+  age: 388
+  birth: 2019/09/03
+  boss: false
+  maps.k1: ezreal
+  maps.k2: rope skipping
+  lists: [a,b,c]
+#  lists:
+#    - cat
+#    - dog
+#    - pig
+#  maps: {k1: v1,k2: v2}
+  dog:
+    name: dog
+    age: 18
