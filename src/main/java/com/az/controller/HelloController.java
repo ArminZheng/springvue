@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+//@RestController = @ResponseBody + @Controller
 public class HelloController {
 
-    @Value("${person.last-name}")
+    @Value("${person.lastName}")
     private String name;
 
     @RequestMapping("/sayHello")

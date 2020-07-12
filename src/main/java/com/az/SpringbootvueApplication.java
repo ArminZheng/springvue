@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author John
  * @date 7/8/2020
  */
+//@ImportResource(locations = "classpath: beans.xml")
 @SpringBootApplication
 public class SpringbootvueApplication {
     public static void main(String[] args) {
