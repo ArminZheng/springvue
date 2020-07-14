@@ -13,10 +13,10 @@ public class HelloController {
     @Value("${person.lastName}")
     private String name;
 
-    @RequestMapping({"/","index.html"})
-    public String index(){
-        return "index";
-    }
+//    @RequestMapping({"/","index.html"})
+//    public String index(){
+//        return "index";
+//    }
 
     @ResponseBody
     @RequestMapping("/sayHello")
