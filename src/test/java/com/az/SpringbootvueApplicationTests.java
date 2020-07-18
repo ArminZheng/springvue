@@ -26,4 +26,13 @@ class SpringbootvueApplicationTests {
         System.out.println(person);
     }
 
+    @Test
+    void multiply() {
+        int s = 1;
+        for (int i = 2; i <10; i++) {
+            System.out.println(i+ "的阶乘是： " +(s*=i));
+        }
+        System.out.println(person);
+    }
+
 }
