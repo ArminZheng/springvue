@@ -1,6 +1,9 @@
 package com.az;
 
+import com.az.bean.Dog;
 import com.az.bean.Person;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,7 +30,11 @@ class SpringbootvueApplicationTests {
     }
 
     @Test
-    void multiply() {
+    void multiply() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonStr = "{\"name\":\"dogge\",\"gender\":true,\"age\":18} ";
+        Dog dog = mapper.readValue(jsonStr, Dog.class);
+        System.out.println(dog);
         int s = 1;
         for (int i = 2; i <10; i++) {
             System.out.println(i+ "的阶乘是： " +(s*=i));
