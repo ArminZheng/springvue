@@ -1,6 +1,17 @@
 spring:
   profiles:
     active: prod
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/bookstore001?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update  #更新或者创建数据表
+    show-sql: true #控制台显示执行的sql语句
+
+
 #yaml的文档快 与markdown类似
 ---
 server:

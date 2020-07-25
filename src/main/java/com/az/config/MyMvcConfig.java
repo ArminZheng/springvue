@@ -13,7 +13,6 @@ public class MyMvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/zheng").setViewName("success");
     }
-
     //所有的WebMvcConfigurerAdapter组件都会一起起作用
     @Bean  //将组件注册在容器
     public WebMvcConfigurer webMvcConfigurer(){

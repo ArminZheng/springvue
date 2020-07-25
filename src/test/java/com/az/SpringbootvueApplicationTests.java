@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 @SpringBootTest
 class SpringbootvueApplicationTests {
 
@@ -42,4 +46,15 @@ class SpringbootvueApplicationTests {
         System.out.println(person);
     }
 
+    @Autowired
+    DataSource dataSource;
+
+    //数据访问测试
+    @Test
+    void dataSourceAccess() throws SQLException {
+        System.out.println(dataSource.getClass());
+        Connection connection = dataSource.getConnection();
+        System.out.println(connection);
+        connection.close();
+    }
 }
