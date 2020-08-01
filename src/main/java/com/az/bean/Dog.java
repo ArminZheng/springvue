@@ -9,4 +9,5 @@ public class Dog {
     private String name;
     private Boolean gender;
     private int age;
+    private String dHost;
 }
